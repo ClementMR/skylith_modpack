@@ -1,0 +1,12 @@
+# textdomain: mythisky
+
+Use @1 or @2 to leave a minigame.=
+You can use @1 to teleport to the lobby.=
+Use @1 for a list of commands.=
+Use @1 to change your skin.=
+Use @1 to send a suggestion.=
+Welcome to the server, @1!=
+Edit your skin=
+Use @1 to change your settings.=
+Springboard=
+[Tips] @1=

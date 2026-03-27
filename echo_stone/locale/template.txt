@@ -1,0 +1,6 @@
+# textdomain: echo_stone
+
+Punch to respawn here@n@nRight-click to teleport to lobby=
+Respawn point already defined here!=
+Respawn point defined!=
+Teleported to lobby=

@@ -1,0 +1,7 @@
+# textdomain: ms_commands
+
+You are not allowed to leave the map while it's loading!=
+Teleport the player to the lobby=
+Teleportation cancelled!=
+Teleportation already in progress!=
+Teleportation in progress...=
