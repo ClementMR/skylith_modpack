@@ -62,24 +62,6 @@ core.register_node(":mythisky:springboard", {
     end,
 })
 
-local clear_list = {
-    "default:chest_locked",
-    "doors:door_steel",
-    "doors:trapdoor_steel",
-    "xpanes:door_steel_bar",
-    "xpanes:trapdoor_steel_bar",
-    "xdecor:enchantment_table",
-    "xdecor:enderchest",
-    "doors:prison_door",
-    "carts:cart"
-}
-
-for _, item in ipairs(clear_list) do
-    if core.registered_nodes[item] or core.registered_craftitems[item] then
-        core.clear_craft({output = item})
-    end
-end
-
 core.override_item("default:gravel", {
     drop = "default:gravel"
 })
