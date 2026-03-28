@@ -3,32 +3,16 @@ local S = core.get_translator(core.get_current_modname())
 core.register_on_newplayer(function(player)
     local name = player:get_player_name()
     if core.is_singleplayer() then return end
-
     core.chat_send_all(core.colorize("green", S("Welcome to the server, @1!", name)))
 end)
 
 core.register_on_joinplayer(function(player)
     local player_name = player:get_player_name()
     if core.is_creative_enabled(player_name) then return end
-
-    if not core.get_modpath("minigame_api") then
-        local spawnpoint = core.settings:get_pos("static_spawnpoint")
-        if spawnpoint then
-            player:set_pos(spawnpoint)
-        else
-            player:respawn()
-        end
-
-        player:get_inventory():set_list("main", {})
-        player:get_inventory():set_list("craft", {})
-    end
-
-    armor:remove_all(player)
-
-    player:hud_set_flags({
-        minimap = false,
-        minimap_radar = false
-    })
+    skylith.try_tp_to_spawn(player)
+    skylith.reset_inventories(player)
+    skylith.show_minimap(player, false)
+    minigame.reset_spectator(player)
 end)
 
 local timer
