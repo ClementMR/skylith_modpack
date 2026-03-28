@@ -5,7 +5,7 @@ local S = core.get_translator(core.get_current_modname())
 local minigame_path = core.get_worldpath() .. "/minigames"
 local data_path = minigame_path .. "/maps.json"
 
-local minigame_prefix = core.colorize("#D9D529", "[Minigame] ")
+local minigame_prefix = core.colorize("#D9D529", "[Minigame]") .. " "
 
 local player_index = {}
 local active_games = {}
@@ -555,7 +555,7 @@ function minigame.add_spectator(player, game_name, map_name)
         player:set_nametag_attributes({text = " ", color = {a=0, r=0, g=0, b=0}})
     end
 
-    player_meta:set_string("is_spectator", "true")
+    player_meta:set_string("minigame:spectator", "true")
 
     map.spectators  = map.spectators or {}
 
@@ -577,42 +577,45 @@ function minigame.add_spectator(player, game_name, map_name)
 end
 
 function minigame.is_spectating(player)
-    return player:get_meta():get_string("is_spectator") == "true"
+    return player:get_meta():get_string("minigame:spectator") == "true"
+end
+
+function minigame.reset_spectator(player)
+    local player_meta = player:get_meta()
+    local player_name = player:get_player_name()
+
+    if not minigame.is_spectating(player) then return end
+
+    if not core.is_creative_enabled(player_name) then
+        core.change_player_privs(player_name, {interact = true, fly = false, fast = false})
+    end
+
+    player:set_properties({
+        pointable = true,
+        visual_size = {x = 1, y = 1},
+        is_visible = true,
+        makes_footstep_sound = true,
+        show_on_minimap = true
+    })
+
+    player_meta:set_string("minigame:spectator", "false")
 end
 
 function minigame.reset_player(player)
-    local player_meta = player:get_meta()
     local player_name = player:get_player_name()
     local spawnpoint = core.settings:get_pos("static_spawnpoint")
     local max_hp = core.PLAYER_MAX_HP_DEFAULT
 
     if not core.is_creative_enabled(player_name) then minigame.clear_inventory(player) end
     if player:get_hp() ~= max_hp then player:set_hp(max_hp) end
+    if player_index[player:get_player_name()] then player_index[player:get_player_name()] = nil end
+    if spawnpoint then player:set_pos(spawnpoint) else player:respawn() end
 
     if minigame.HIDE_NAMETAGS and player:get_nametag_attributes().text == " " then
         player:set_nametag_attributes({text = player_name, color = {a=255, r=255, g=255, b=255}})
     end
 
-    if minigame.is_spectating(player) then
-        if not core.is_creative_enabled(player_name) then
-            core.change_player_privs(player_name, {interact = true, fly = false, fast = false})
-        end
-
-        player:set_properties({
-            pointable = true,
-            visual_size = {x = 1, y = 1},
-            is_visible = true,
-            makes_footstep_sound = true,
-            show_on_minimap = true
-        })
-
-        player_meta:set_string("is_spectator", "false")
-    end
-
-    if player_index[player:get_player_name()] then player_index[player:get_player_name()] = nil end
-
-    if spawnpoint then player:set_pos(spawnpoint)
-    else player:respawn() end
+    minigame.reset_spectator(player)
 end
 
 function minigame.teleport_player_to_spawn(player, map, spawn_index)

@@ -1,5 +1,3 @@
-core.register_on_joinplayer(function(player) minigame.reset_player(player) end)
-
 core.register_on_leaveplayer(function(player)
     local player_name = player:get_player_name()
     local entry = minigame.get_player_entry(player)
