@@ -1,4 +1,4 @@
-# textdomain: mythisky
+# textdomain: ms_main
 
 Use @1 or @2 to leave a minigame.=
 You can use @1 to teleport to the lobby.=
