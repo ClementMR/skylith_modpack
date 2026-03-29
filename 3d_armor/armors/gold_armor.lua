@@ -28,7 +28,7 @@ local S = core.get_translator(core.get_current_modname())
 armor:register_armor("3d_armor:helmet_gold", {
     description = S("Gold Helmet"),
     inventory_image = "3d_armor_inv_helmet_gold.png",
-    groups = {armor_head=1, armor_heal=6, armor_use=300},
+    groups = {armor_head=1, armor_heal=3, armor_use=300},
     armor_groups = {fleshy=10},
     damage_groups = {cracky=1, snappy=2, choppy=2, crumbly=3, level=2},
 })
@@ -48,7 +48,7 @@ armor:register_armor("3d_armor:helmet_gold", {
 armor:register_armor("3d_armor:chestplate_gold", {
     description = S("Gold Chestplate"),
     inventory_image = "3d_armor_inv_chestplate_gold.png",
-    groups = {armor_torso=1, armor_heal=6, armor_use=300},
+    groups = {armor_torso=1, armor_heal=3, armor_use=300},
     armor_groups = {fleshy=15},
     damage_groups = {cracky=1, snappy=2, choppy=2, crumbly=3, level=2},
 })
@@ -68,7 +68,7 @@ armor:register_armor("3d_armor:chestplate_gold", {
 armor:register_armor("3d_armor:leggings_gold", {
     description = S("Gold Leggings"),
     inventory_image = "3d_armor_inv_leggings_gold.png",
-    groups = {armor_legs=1, armor_heal=6, armor_use=300},
+    groups = {armor_legs=1, armor_heal=3, armor_use=300},
     armor_groups = {fleshy=15},
     damage_groups = {cracky=1, snappy=2, choppy=2, crumbly=3, level=2},
 })
@@ -88,7 +88,7 @@ armor:register_armor("3d_armor:leggings_gold", {
 armor:register_armor("3d_armor:boots_gold", {
     description = S("Gold Boots"),
     inventory_image = "3d_armor_inv_boots_gold.png",
-    groups = {armor_feet=1, armor_heal=6, armor_use=300, armor_feather = 8},
+    groups = {armor_feet=1, armor_heal=3, armor_use=300, armor_feather = 4},
     armor_groups = {fleshy=10},
     damage_groups = {cracky=1, snappy=2, choppy=2, crumbly=3, level=2},
 })
@@ -108,7 +108,7 @@ armor:register_armor("3d_armor:boots_gold", {
 armor:register_armor(":shields:shield_gold", {
     description = S("Gold Shield"),
     inventory_image = "shields_inv_shield_gold.png",
-    groups = {armor_shield=1, armor_heal=6, armor_use=300},
+    groups = {armor_shield=1, armor_heal=3, armor_use=300},
     armor_groups = {fleshy=10},
     damage_groups = {cracky=1, snappy=2, choppy=2, crumbly=3, level=2},
     reciprocate_damage = true,

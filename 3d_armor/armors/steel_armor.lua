@@ -89,7 +89,7 @@ armor:register_armor("3d_armor:leggings_steel", {
 armor:register_armor("3d_armor:boots_steel", {
     description = S("Steel Boots"),
     inventory_image = "3d_armor_inv_boots_steel.png",
-    groups = {armor_feet=1, armor_heal=0, armor_use=800, armor_feather = 4},
+    groups = {armor_feet=1, armor_heal=0, armor_use=800, armor_feather = 3},
     armor_groups = {fleshy=10},
     damage_groups = {cracky=2, snappy=3, choppy=2, crumbly=1, level=2},
 })
