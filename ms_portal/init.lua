@@ -43,8 +43,9 @@ core.register_globalstep(function(dtime)
     if timer > 1 then
 		timer = 0
         for _, player in pairs(core.get_connected_players()) do
+			local name = player:get_player_name()
             if core.get_node(player:get_pos()).name == "ms_portal:portal" then
-				if core.global_exists("ffa") then
+				if core.global_exists("ffa") and not core.get_player_privs(name).ffa_manager then
 					ffa.on_enter(player)
 					return
 				end
