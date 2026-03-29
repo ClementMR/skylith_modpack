@@ -18,3 +18,9 @@ if core.global_exists("visible_wielditem") then
 		scale = 1.2
 	}
 end
+
+if core.global_exists("xdecor") then
+    xdecor.register_enchantable_tool("ms_items:sword_shadow", {
+        enchants = { "sharp" }
+    })
+end
