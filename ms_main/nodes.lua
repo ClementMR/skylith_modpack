@@ -83,3 +83,19 @@ if core.get_modpath("xdecor") then
         on_blast = function() return end
     })
 end
+
+core.override_item("wool:red", {
+    stack_max = 150
+})
+
+core.override_item("wool:blue", {
+    stack_max = 150
+})
+
+core.override_item("wool:red", {
+    stack_max = 150
+})
+
+core.override_item("farming:bread", {
+    stack_max = 16
+})
