@@ -3,7 +3,7 @@ core.register_tool("ms_items:sword_shadow", {
     inventory_image = "ms_items_shadow_sword.png",
     range = 5,
     tool_capabilities = {
-        full_punch_interval = 0.8,
+        full_punch_interval = 0.7,
         groupcaps = {
             snappy={times={[1]=1.90, [2]=0.90, [3]=0.30}, uses = 100, maxlevel = 3}
         },
