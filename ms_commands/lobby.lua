@@ -38,6 +38,11 @@ core.register_chatcommand("lobby", {
 			return true
 		end
 
+		if core.global_exists("ffa") and ffa.get_player_in_list(player) then
+			ffa.on_leave(player)
+			return true
+		end
+
 		if teleporting[name] then
             return false, core.colorize("red", S("Teleportation already in progress!"))
 		end
