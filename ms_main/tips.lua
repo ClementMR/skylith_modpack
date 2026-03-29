@@ -6,7 +6,9 @@ local tips = {
     S("Use @1 for a list of commands.", "/help"),
     S("Use @1 to change your skin.", "/skin"),
     S("Use @1 to send a suggestion.", "/suggestion <message>"),
-    S("Use @1 to change your settings.", "/settings")
+    S("Use @1 to change your settings.", "/settings"),
+    S("Use @1 to leave FFA.", "/ffa_leave"),
+    S("Use @1 to see who's in FFA.", "/ffa_whois")
 }
 
 local timer = skylith.TIPS

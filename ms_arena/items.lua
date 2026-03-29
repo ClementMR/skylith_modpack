@@ -94,6 +94,24 @@ core.register_tool("ms_arena:sword_diamond", {
 		},
 		damage_groups = {fleshy=8},
 	},
+	on_secondary_use = function(itemstack, user) switch_to(user, itemstack, "ms_arena:sword_shadow") end,
+    on_drop = function() return end
+})
+
+core.register_tool("ms_arena:sword_shadow", {
+	description = ItemStack("ms_items:sword_shadow"):get_description() .. info,
+	inventory_image = "ms_items_shadow_sword.png^ms_arena_infinite_item.png",
+	wield_image = "ms_items_shadow_sword.png",
+	range = 5,
+	tool_capabilities = {
+        full_punch_interval = 0.8,
+		max_drop_level=1,
+        groupcaps = {
+            snappy={times={[1]=1.90, [2]=0.90, [3]=0.30}, uses = 0, maxlevel = 3}
+        },
+        damage_groups = {fleshy = 12},
+    },
+	groups = {bigger_sword = 1},
 	on_secondary_use = function(itemstack, user) switch_to(user, itemstack, "ms_arena:sword_stone") end,
     on_drop = function() return end
 })

@@ -3,6 +3,7 @@ local S = core.get_translator(core.get_current_modname())
 
 local admin_prefix = "Admin-only : "
 
+--[[
 core.register_chatcommand("join", {
     description = S("Join a minigame"),
     params = S("<game_name> <map_name>"),
@@ -22,6 +23,7 @@ core.register_chatcommand("join", {
         minigame.join_game(player, game_name, map_name)
     end
 })
+]]
 
 core.register_chatcommand("add_player", {
     description = admin_prefix .. S("Add a player to a minigame"),

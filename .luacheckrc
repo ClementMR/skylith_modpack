@@ -10,7 +10,8 @@ globals = {
     "skywars", "areas",
     "in_arena", "PlayerName",
     "ms_items", "mobs",
-    "edit_skin"
+    "edit_skin", "ffa",
+    "visible_wielditem"
 }
 
 read_globals = {

@@ -73,7 +73,8 @@ function hud_api.show_actionbar(player, text, color)
             number = color,
             size = {x = 1.1, y = 1.1},
             position = {x =  0.5, y = 0.8},
-            z_index = 100
+            z_index = 100,
+            style = 1
         }),
         color = color
     }

@@ -10,3 +10,5 @@ Edit your skin=
 Use @1 to change your settings.=
 Springboard=
 [Tips] @1=
+Use @1 to leave FFA.=
+Use @1 to see who's in FFA.=

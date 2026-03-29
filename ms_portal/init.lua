@@ -1,3 +1,5 @@
+local PORTAL_DESTINATION = core.settings:get_pos("portal_destination")
+
 core.register_node("ms_portal:portal", {
 	description = "Portal",
 	tiles = {
@@ -42,14 +44,16 @@ core.register_globalstep(function(dtime)
 		timer = 0
         for _, player in pairs(core.get_connected_players()) do
             if core.get_node(player:get_pos()).name == "ms_portal:portal" then
-				local name = player:get_player_name()
-				local pos = core.settings:get_pos("portal_destination")
-				if not pos then return end
+				if core.global_exists("ffa") then
+					ffa.on_enter(player)
+					return
+				end
 
-				core.log("action", "[Portal] Player " .. name ..
-					" teleported to " .. core.pos_to_string(pos))
+				if not PORTAL_DESTINATION then
+					return
+				end
 
-				player:set_pos(pos)
+				player:set_pos(PORTAL_DESTINATION)
             end
         end
     end

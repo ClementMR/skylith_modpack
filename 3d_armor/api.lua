@@ -76,7 +76,6 @@ local transparent_armor = core.settings:get_bool("armor_transparent", false)
 
 --- @section end
 
-
 local use_player_monoids = core.global_exists("player_monoids")
 local use_armor_monoid = core.global_exists("armor_monoid")
 local use_pova_mod = core.get_modpath("pova")
@@ -137,7 +136,10 @@ armor = {
 		{"default:torch_ceiling",   1, 1},
 		{"default:torch_wall",      1, 1},
 	},
-	registered_groups = {["fleshy"]=100},
+	registered_groups = {
+		["fleshy"]=100,
+		["immortal"]=0
+	},
 	registered_callbacks = {
 		on_update = {},
 		on_equip = {},
@@ -171,7 +173,6 @@ armor.config = {
 	feather_fall = true,
 	punch_damage = true,
 }
-
 
 --- Methods
 --
@@ -668,32 +669,26 @@ end
 armor.equip = function(self, player, itemstack)
     local name, armor_inv = self:get_valid_player(player, "[equip]")
     local armor_element = self:get_element(itemstack:get_name())
-    if name and armor_element then
-        local valid_index = {head = 1, torso = 2, legs = 3, feet = 4, shield = 5}
-        local index = valid_index[armor_element]
-
-        if not index then
-            return itemstack
-        end
-
-        local stack = armor_inv:get_stack("armor", index)
-		--prevents equiping an armor that would unequip a cursed armor.
-		if core.get_item_group(stack:get_name(), "cursed") ~= 0 then
-			return itemstack
+	if name and armor_element then
+		local index
+		for i=1, armor_inv:get_size("armor") do
+			local stack = armor_inv:get_stack("armor", i)
+			if armor_element == armor.elements[i] then
+				--prevents equiping an armor that would unequip a cursed armor.
+				if core.get_item_group(stack:get_name(), "cursed") ~= 0 then
+					return itemstack
+				end
+				index = i
+				self:unequip(player, armor_element)
+				break
+			end
 		end
-        if not stack:is_empty() then
-            self:unequip(player, armor_element)
-        end
-
-        armor_inv:set_stack("armor", index, itemstack:take_item())
-        self:run_callbacks("on_equip", player, index, itemstack:take_item())
-        self:set_player_armor(player)
-        self:save_armor_inventory(player)
-
-		if core.get_modpath("sfinv") then
-			sfinv.set_page(player, "sfinv:crafting")
-		end
-    end
+		local stack = itemstack:take_item()
+		armor_inv:set_stack("armor", index, stack)
+		self:run_callbacks("on_equip", player, index, stack)
+		self:set_player_armor(player)
+		self:save_armor_inventory(player)
+	end
 
     return itemstack
 end
