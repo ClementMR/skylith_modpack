@@ -11,7 +11,8 @@ globals = {
     "in_arena", "PlayerName",
     "ms_items", "mobs",
     "edit_skin", "ffa",
-    "visible_wielditem"
+    "visible_wielditem",
+    "xdecor"
 }
 
 read_globals = {
