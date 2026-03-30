@@ -22,6 +22,15 @@ function skylith.show_minimap(player, bool)
     })
 end
 
+function skylith.reset_health(player)
+    local max_hp = core.PLAYER_MAX_HP_DEFAULT or 20
+    if player:get_hp() == max_hp then
+        return
+    end
+
+    player:set_hp(max_hp)
+end
+
 local function kill_player()
     if core.is_singleplayer() then return end
 

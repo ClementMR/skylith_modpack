@@ -8,10 +8,14 @@ end)
 
 core.register_on_joinplayer(function(player)
     local player_name = player:get_player_name()
-    if core.is_creative_enabled(player_name) then return end
+    if core.is_creative_enabled(player_name) then
+        return
+    end
+
     skylith.try_tp_to_spawn(player)
     skylith.reset_inventories(player)
     skylith.show_minimap(player, false)
+    skylith.reset_health(player)
     minigame.reset_spectator(player)
 end)
 
