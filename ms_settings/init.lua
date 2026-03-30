@@ -1,7 +1,8 @@
 ms_settings = {
     settings = {},
     categories = {
-        "Hud"
+        "Hud",
+        "Misc"
     }
 }
 
