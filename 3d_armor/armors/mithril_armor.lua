@@ -98,7 +98,7 @@ armor:register_armor("3d_armor:boots_mithril", {
 armor:register_armor(":shields:shield_mithril", {
     description = S("Mithril Shield"),
     inventory_image = "shields_inv_shield_mithril.png",
-    groups = {armor_shield=1, armor_heal=6, armor_use=66},
+    groups = {armor_shield=1, armor_heal=3, armor_use=66},
     armor_groups = {fleshy=15},
     damage_groups = {cracky=2, snappy=1, level=3},
     reciprocate_damage = true,
