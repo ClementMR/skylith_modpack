@@ -10,8 +10,7 @@ if core.get_modpath("sfinv") then
 
 			if edit_skin_enabled then
 				form = form ..
-				"style[btn_edit_skin;bgcolor=#67C447]" ..
-				"image_button[7.2,0;1,1;mythisky_hanger.png;btn_edit_skin;;true;]" ..
+				"image_button[7.2,0;1,1;edit_skin_button.png;btn_edit_skin;;true;false]" ..
 				"tooltip[btn_edit_skin;"..S("Edit your skin").."]"
 			end
 
