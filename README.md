@@ -11,6 +11,7 @@ Official server : `sw.minetest.land:30002`
 ## Mods
 
 - [3d Armor](https://github.com/minetest-mods/3d_armor) (Forked)
+- Echo Stone
 - Custom Crosshair
 - Glass Stepping Stones
 - HUD API
@@ -21,6 +22,7 @@ Official server : `sw.minetest.land:30002`
 - MS Announce
 - [MS Area](https://github.com/minetest-mods/areas/) (Forked)
 - MS Arena
+- MS Commands
 - MS Entities
 - MS Items
 - MS Main
