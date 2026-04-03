@@ -18,7 +18,6 @@ local S = core.get_translator(core.get_current_modname())
 --  @helmet 3d_armor:helmet_wood
 --  @img 3d_armor_inv_helmet_wood.png
 --  @grp armor_head 1
---  @grp armor_heal 0
 --  @grp armor_use 2000
 --  @grp flammable 1
 --  @armorgrp fleshy 5
@@ -30,16 +29,16 @@ local S = core.get_translator(core.get_current_modname())
 armor:register_armor("3d_armor:helmet_wood", {
     description = S("Wood Helmet"),
     inventory_image = "3d_armor_inv_helmet_wood.png",
-    groups = {armor_head=1, armor_heal=0, armor_use=2000, flammable=1},
+    groups = {armor_head=1, armor_use=2000, flammable=1},
     armor_groups = {fleshy=5},
     damage_groups = {cracky=3, snappy=2, choppy=3, crumbly=2, level=1},
 })
+
 --- Wood Chestplate
 --
 --  @chestplate 3d_armor:chestplate_wood
 --  @img 3d_armor_inv_chestplate_wood.png
 --  @grp armor_torso 1
---  @grp armor_heal 0
 --  @grp armor_use 2000
 --  @grp flammable 1
 --  @armorgrp fleshy 10
@@ -51,16 +50,16 @@ armor:register_armor("3d_armor:helmet_wood", {
 armor:register_armor("3d_armor:chestplate_wood", {
     description = S("Wood Chestplate"),
     inventory_image = "3d_armor_inv_chestplate_wood.png",
-    groups = {armor_torso=1, armor_heal=0, armor_use=2000, flammable=1},
+    groups = {armor_torso=1, armor_use=2000, flammable=1},
     armor_groups = {fleshy=10},
     damage_groups = {cracky=3, snappy=2, choppy=3, crumbly=2, level=1},
 })
+
 --- Wood Leggings
 --
 --  @leggings 3d_armor:leggings_wood
 --  @img 3d_armor_inv_leggings_wood.png
 --  @grp armor_legs 1
---  @grp armor_heal 0
 --  @grp armor_use 1000
 --  @grp flammable 1
 --  @armorgrp fleshy 10
@@ -72,16 +71,16 @@ armor:register_armor("3d_armor:chestplate_wood", {
 armor:register_armor("3d_armor:leggings_wood", {
     description = S("Wood Leggings"),
     inventory_image = "3d_armor_inv_leggings_wood.png",
-    groups = {armor_legs=1, armor_heal=0, armor_use=2000, flammable=1},
+    groups = {armor_legs=1, armor_use=2000, flammable=1},
     armor_groups = {fleshy=10},
     damage_groups = {cracky=3, snappy=2, choppy=3, crumbly=2, level=1},
 })
+
 --- Wood Boots
 --
 --  @boots 3d_armor:boots_wood
 --  @img 3d_armor_inv_boots_wood.png
 --  @grp armor_feet 1
---  @grp armor_heal 0
 --  @grp armor_use 2000
 --  @grp flammable 1
 --  @armorgrp fleshy 5
@@ -93,16 +92,16 @@ armor:register_armor("3d_armor:leggings_wood", {
 armor:register_armor("3d_armor:boots_wood", {
     description = S("Wood Boots"),
     inventory_image = "3d_armor_inv_boots_wood.png",
-    armor_groups = {fleshy=5, armor_feather = 0},
+    armor_groups = {fleshy=5},
+    groups = {armor_feet=1, armor_use=2000, flammable=1},
     damage_groups = {cracky=3, snappy=2, choppy=3, crumbly=2, level=1},
-    groups = {armor_feet=1, armor_heal=0, armor_use=2000, flammable=1},
 })
+
 --- Wood Shield
 --
 --  @shield shields:shield_wood
 --  @img shields_inv_shield_wood.png
 --  @grp armor_shield 1
---  @grp armor_heal 0
 --  @grp armor_use 2000
 --  @grp flammable 1
 --  @armorgrp fleshy 5
@@ -114,19 +113,19 @@ armor:register_armor("3d_armor:boots_wood", {
 armor:register_armor(":shields:shield_wood", {
     description = S("Wooden Shield"),
     inventory_image = "shields_inv_shield_wood.png",
-    groups = {armor_shield=1, armor_heal=0, armor_use=2000, flammable=1},
     armor_groups = {fleshy=5},
+    groups = {armor_shield=1, armor_use=2000, flammable=1},
     damage_groups = {cracky=3, snappy=2, choppy=3, crumbly=2, level=1},
     reciprocate_damage = true,
     on_damage = function(player) armor:play_sound_effect(player, "default_wood_footstep") end,
     on_destroy = function(player) armor:play_sound_effect(player, "default_wood_footstep") end,
 })
+
 --- Enhanced Wood Shield
 --
 --  @shield shields:shield_enhanced_wood
 --  @img shields_inv_shield_enhanced_wood.png
 --  @grp armor_shield 1
---  @grp armor_heal 0
 --  @grp armor_use 2000
 --  @armorgrp fleshy 8
 --  @damagegrp cracky 3
@@ -137,8 +136,8 @@ armor:register_armor(":shields:shield_wood", {
 armor:register_armor(":shields:shield_enhanced_wood", {
     description = S("Enhanced Wood Shield"),
     inventory_image = "shields_inv_shield_enhanced_wood.png",
-    groups = {armor_shield=1, armor_heal=0, armor_use=2000},
     armor_groups = {fleshy=8},
+    groups = {armor_shield=1, armor_use=2000},
     damage_groups = {cracky=3, snappy=2, choppy=3, crumbly=2, level=2},
     reciprocate_damage = true,
     on_damage = function(player) armor:play_sound_effect(player, "default_dig_metal") end,
