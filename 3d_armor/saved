@@ -1,9 +1,0 @@
-if core.get_modpath("sfinv") then
-	local orig_get = sfinv.pages["sfinv:crafting"].get
-	sfinv.override_page("sfinv:crafting", {
-		get = function(self, player, context)
-			local form = armor:get_armor_formspec(player:get_player_name())
-			return orig_get(self, player, context) .. form
-		end
-	})
-end
