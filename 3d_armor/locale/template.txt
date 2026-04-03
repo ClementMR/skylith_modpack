@@ -65,5 +65,7 @@ Wood Boots=
 Wooden Shield=
 Enhanced Wood Shield=
 
-Armor Protection: @1=
-Armor Healing: @1=
+Armor Protection @1=
+Feather Falling @1=
+Healing Factor @1=
+Immortality @1=
